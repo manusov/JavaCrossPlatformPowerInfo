@@ -1,0 +1,6 @@
+Previous works saved at:
+
+C:\Projects\( 3 ) Java Lessons new\( 040 ) JavaPowerInfoQuestions
+C:\Projects\( 3 ) Java Lessons new\( 040 ) JavaPowerInfoQuestions\PIQasm-IOCTL
+
+This debug samples updated at dual-battery system debug.
