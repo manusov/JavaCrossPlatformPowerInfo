@@ -7,7 +7,7 @@ package powerinfo;
 
 public class About {
 
-private final static String VERSION_NAME = "v0.80";
+private final static String VERSION_NAME = "v0.81";
 private final static String VENDOR_NAME  = "(C)2018 IC Book Labs";
 private final static String SHORT_NAME   = "Power Info " + VERSION_NAME;
 private final static String LONG_NAME    = "Java " + SHORT_NAME;

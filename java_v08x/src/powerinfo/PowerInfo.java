@@ -3,6 +3,7 @@
 Java Power Info utility, (C)2018 IC Book Labs
 Main class of the project
 USE JDK7 MODE.
+JDK8 from v0.81.
 
 ---------- How design Linux version, variant 1 ---------------------------------
 
