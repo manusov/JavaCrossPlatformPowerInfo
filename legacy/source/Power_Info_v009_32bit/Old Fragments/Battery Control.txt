@@ -1,0 +1,41 @@
+
+{ IOCTL DeviceIoControl usage notes for Battery Info.
+Parm#1 = HANDLE: device handle returned by CreateFile function
+Parm#2 = REQUEST CODE: IOCTL_BATTERY_QUERY_INFORMATION
+Parm#3 = POINTER: pointer to input buffer
+Parm#4 = DWORD: size of input buffer
+Parm#5 = POINTER: pointer to output buffer
+Parm#6 = DWORD: size of output buffer
+Parm#7 = POINTER: pointer to dword: variable output return size
+Parm#8 = POINTER: pointer to OVERLAPPED structure for async. }
+
+BATTERY_INFORMATION = packed record
+  Capabilities:DWord;
+  Technology:Byte;
+  Reserved:Array [0..2] of Byte;
+  Chemistry:Array [0..3] of Char;
+  DesignedCapacity:DWord;
+  FullChargedCapacity:DWord;
+  DefaultAlert1:DWord;
+  DefaultAlert2:DWord;
+  CriticalBias:DWord;
+  CycleCount:DWord
+end;
+P_BATTERY_INFORMATION = ^BATTERY_INFORMATION;
+
+BatteryTypes Array [0..6] of String = (
+ 'PbAc' , 'Lead Acid'
+ 'LION' , 'Lithium Ion'
+ 'Li-I' , 'Lithium Ion'
+ 'NiCd' , 'Nickel Cadmium'
+ 'NiMH' , 'Nickel Metal Hydride'
+ 'NiZn' , 'Nickel Zinc'
+ 'RAM'  , 'Rechargeable Alkaline-Manganese' );
+ 
+BATTERY_QUERY_INFORMATION = packed record
+  BatteryTag:DWord;
+  InformationLevel:BATTERY_QUERY_INFORMATION_LEVEL;
+  AtRate:DWord
+end;
+P_BATTERY_QUERY_INFORMATION = ^BATTERY_QUERY_INFORMATION;
+

@@ -1,0 +1,41 @@
+{---------- REJECTED -----------------------------------------------------------
+type
+  LPFN_SDGCD = function
+               (p1,p2:Pointer; h1:THandle; f1:UInt32):THandle; stdcall;
+  LPFN_SDEDI = function
+               (p1,p2,p3:Pointer; i:UInt32; p4:Pointer):Boolean; stdcall;
+const
+  GUID_DEVCLASS_BATTERY:TGUID = '{72631E54-78A4-11D0-BCF7-00AA00B7B32A}';
+  DIGCF_FLAGS:UInt32=$00000012;     // PRESENT=02H, DEVICEINTERFACE=10H
+var
+  count:Integer;
+  syslib,hdev,hwnd:THandle;
+  p1,p2:Pointer;
+  f1:UInt32;
+  sdgcd:LPFN_SDGCD;
+  sdedi:LPFN_SDEDI;
+begin
+
+{--- Initializing variables ---}
+  count:=0; hdev:=0; hwnd:=0; UInt64(p1):=0; UInt64(p2):=0;
+{--- Loading WinAPI library functions ---}
+syslib := GetModuleHandle('setupapi');
+if syslib<>0 then
+  begin
+    sdgcd := LPFN_SDGCD
+    ( GetProcAddress(syslib, 'SetupDiGetClassDevs') );
+    //sdedi := LPFN_SDEDI
+    //( GetProcAddress (syslib, 'SetupDiEnumDeviceInterfaces') );
+  if((assigned(sdgcd)) )  // AND(assigned(sdedi)))
+  then
+    begin
+      p1:=@GUID_DEVCLASS_BATTERY;
+      UInt64(p2):=0;
+      UInt64(hwnd):=0;
+      hdev:=sdgcd(p1,p2,hwnd,f1);
+    end;
+  end;
+ { UNDER CONSTRUCTION }
+ InitIoctl:=count;
+end;
+---------- END OF REJECTED ----------------------------------------------------}

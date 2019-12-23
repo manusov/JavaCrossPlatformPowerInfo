@@ -1,0 +1,217 @@
+object Form1: TForm1
+  Left = 515
+  Height = 596
+  Top = 165
+  Width = 655
+  BorderStyle = bsDialog
+  Caption = 'Power status and battery monitor'
+  ClientHeight = 596
+  ClientWidth = 655
+  OnCreate = AppStart
+  Position = poScreenCenter
+  LCLVersion = '1.6.0.1'
+  object Label4: TLabel
+    Left = 24
+    Height = 15
+    Top = 562
+    Width = 279
+    Caption = 'Power Info v0.09 (engineering sample, 64-bit edition)'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 24
+    Height = 15
+    Top = 576
+    Width = 117
+    Caption = '(C) 2016  IC Book Labs'
+    ParentColor = False
+  end
+  object PageControl1: TPageControl
+    Left = 3
+    Height = 550
+    Top = 8
+    Width = 645
+    ActivePage = TabSheet1
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Power status'
+      ClientHeight = 522
+      ClientWidth = 637
+      object Label1: TLabel
+        Left = 0
+        Height = 15
+        Top = 16
+        Width = 72
+        Caption = 'Power status'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object StringGrid1: TStringGrid
+        AnchorSideLeft.Control = TabSheet1
+        AnchorSideTop.Control = Label1
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = TabSheet1
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = TabSheet1
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 491
+        Top = 31
+        Width = 637
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Battery details'
+      ClientHeight = 522
+      ClientWidth = 637
+      object Label3: TLabel
+        Left = 0
+        Height = 15
+        Top = 8
+        Width = 145
+        Caption = 'Battery enumeration path'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object StringGrid2: TStringGrid
+        AnchorSideLeft.Control = TabSheet2
+        AnchorSideTop.Control = Label2
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = TabSheet2
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = TabSheet2
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 451
+        Top = 71
+        Width = 637
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        ParentFont = False
+        TabOrder = 0
+      end
+      object ComboBox1: TComboBox
+        AnchorSideTop.Control = Label3
+        AnchorSideTop.Side = asrBottom
+        Left = 0
+        Height = 23
+        Top = 23
+        Width = 535
+        Enabled = False
+        ItemHeight = 15
+        OnCloseUp = ChangeSelection
+        ParentFont = False
+        Style = csDropDownList
+        TabOrder = 1
+      end
+      object Label2: TLabel
+        Left = 0
+        Height = 15
+        Top = 56
+        Width = 81
+        Caption = 'Battery details'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Charging monitor'
+      ClientHeight = 522
+      ClientWidth = 637
+      object Chart1: TChart
+        Left = 5
+        Height = 226
+        Top = 9
+        Width = 624
+        AxisList = <        
+          item
+            Minors = <>
+            Title.LabelFont.Orientation = 900
+            Title.LabelFont.Style = [fsBold]
+            Title.Visible = True
+            Title.Caption = 'Current level,  mWh'
+          end        
+          item
+            Alignment = calBottom
+            Minors = <>
+            Range.Max = 1800
+            Range.UseMax = True
+            Range.UseMin = True
+            Title.LabelFont.Style = [fsBold]
+            Title.Visible = True
+            Title.Caption = 'Time, seconds'
+          end>
+        Foot.Brush.Color = clBtnFace
+        Foot.Font.Color = clBlue
+        Title.Brush.Color = clBtnFace
+        Title.Font.Color = clBlue
+        Title.Text.Strings = (
+          'TAChart'
+        )
+        Enabled = False
+        object SeriesLevel: TLineSeries
+          LinePen.Color = clBlue
+        end
+      end
+      object Chart2: TChart
+        Left = 5
+        Height = 226
+        Top = 247
+        Width = 624
+        AxisList = <        
+          item
+            Minors = <>
+            Title.LabelFont.Orientation = 900
+            Title.LabelFont.Style = [fsBold]
+            Title.Visible = True
+            Title.Caption = 'Current rate,  mW'
+          end        
+          item
+            Alignment = calBottom
+            Minors = <>
+            Range.Max = 1800
+            Range.UseMax = True
+            Range.UseMin = True
+            Title.LabelFont.Style = [fsBold]
+            Title.Visible = True
+            Title.Caption = 'Time,  seconds'
+          end>
+        Foot.Brush.Color = clBtnFace
+        Foot.Font.Color = clBlue
+        Title.Brush.Color = clBtnFace
+        Title.Font.Color = clBlue
+        Title.Text.Strings = (
+          'TAChart'
+        )
+        Enabled = False
+        object SeriesRate: TLineSeries
+          LinePen.Color = clBlue
+        end
+      end
+      object Button1: TButton
+        Left = 536
+        Height = 25
+        Top = 488
+        Width = 75
+        Caption = 'Start'
+        Enabled = False
+        OnClick = RunMonitor
+        TabOrder = 2
+      end
+    end
+  end
+  object Timer1: TTimer
+    Interval = 500
+    OnTimer = TimerTicks
+    left = 328
+    top = 560
+  end
+end
