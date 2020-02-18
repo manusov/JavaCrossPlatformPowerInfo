@@ -1,0 +1,15 @@
+
+v0.83 (February, 18, 2020)
+Java code refactoring and optimization, internal changes.
+Report generation optimized by StringBuilder class.
+
+v0.82.
+Bug fix: incorrect power units (mWh/Wh) at Linux mode.
+
+v0.81.
+Re-build at JDK8 mode (advanced).
+Motivation: support high-dpi displays.
+
+v0.80.
+Fix source code NetBeans IDE warnings. Edit comments.
+v0.80 build at JDK7 mode (legacy).
