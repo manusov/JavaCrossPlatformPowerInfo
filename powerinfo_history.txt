@@ -1,3 +1,7 @@
+PowerInfo v1.00.00 (February, 09, 2021)
+1) Changed web link.
+
+
 
 v0.83 (February, 18, 2020)
 Java code refactoring and optimization, internal changes.
