@@ -16,14 +16,14 @@ private boolean nativeValid = false;
 public native int checkPAL();
 public native int entryPAL( long[] a, long[] b, long c, long d );
 
-    // Methods for get native platform detection results
-    // NativeType: 0=Win32, 1=Win64, 2=Linux32, 3=Linux64, ... , -1=Unknown
-    public int getNativeType() { return nativeType; }
-    public boolean getNativeValid() { return nativeValid; }
-    // Get Power Management information, target native method
-    public native int NativeAgent( long[] a, long[] b, int c, int d );
-    // Method for load user mode library
-    public int loadUserModeLibrary()
+// Methods for get native platform detection results
+// NativeType: 0=Win32, 1=Win64, 2=Linux32, 3=Linux64, ... , -1=Unknown
+public int getNativeType() { return nativeType; }
+public boolean getNativeValid() { return nativeValid; }
+// Get Power Management information, target native method
+public native int NativeAgent( long[] a, long[] b, long c, long d );
+// Method for load user mode library
+public int loadUserModeLibrary()
     {
     String[] libNames      = 
         { "WIN32JNI" , "WIN64JNI" , "libLINUX32JNI" , "libLINUX64JNI" };

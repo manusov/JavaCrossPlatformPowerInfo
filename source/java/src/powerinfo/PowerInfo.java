@@ -1,6 +1,6 @@
 /*
 
-Java Power Info utility, (C)2021 IC Book Labs
+Java Power Info utility, (C)2022 IC Book Labs
 Main class of the project
 Use JDK8 from v0.81. Previous versions use JDK7 mode.
 

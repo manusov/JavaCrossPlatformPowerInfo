@@ -1,7 +1,14 @@
+PowerInfo v1.00.01 (July, 23, 2022)
+Corrected parameters width for native call:
+PAL.java,
+public native int NativeAgent( long[] a, long[] b, int c, int d );
+replaced to:
+public native int NativeAgent( long[] a, long[] b, long c, long d ); 
+Fixed bug with parameter high bits [63-32] occurred at Windows x64 with JDK17.
+
+
 PowerInfo v1.00.00 (February, 09, 2021)
 1) Changed web link.
-
-
 
 v0.83 (February, 18, 2020)
 Java code refactoring and optimization, internal changes.
